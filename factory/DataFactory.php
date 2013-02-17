@@ -17,7 +17,9 @@ class DataFactory {
         $driver = null;
         switch ($data['type']) {
             case 'mysql':
+            case 'pdoMysql' :
             case 'mssql':
+            case 'pdoMssql' :
                 $className = '\\drivers\\' . ucfirst($data['type']) . 'Driver';
                 $driver = $className::getInstance();
                 break;

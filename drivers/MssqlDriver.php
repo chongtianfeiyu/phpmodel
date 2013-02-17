@@ -45,13 +45,6 @@ class MssqlDriver implements Driver {
         if (!$this->db) {
             die('Could not connect mssql: ' . sqlsrv_errors());
         }
-        
-//        $dsn = "sqlsrv:Server={$data['host']};Database={$data['db']}";
-//        try {
-//            $this->db = new \PDO($dsn, $data['user'], $data['pass']);
-//        } catch (\PDOException $e) {
-//            die('Could not connect mssql: ' . $e->getMessage());
-//        }
     }
     
     /**
@@ -118,8 +111,7 @@ class MssqlDriver implements Driver {
      * @return boolean  TRUE
      */
     public function insert($table, $fields, $isGetId=FALSE) {
-        $fieldStr = '';
-        $valueStr = '';
+        $fieldStr = $valueStr = '';
         $isFirst = true;
         foreach ($fields as $k=>$v) {
             if ($isFirst) {
